@@ -26,6 +26,8 @@
             alert ('hola');
             
             const [entry] = performance.getEntriesByType("navigation");
+
+            alert (entry.type);
                         
             if (entry && entry.type === "back_forward") {
                 
@@ -36,6 +38,7 @@
     </script>
 </body>
 </html>
+
 
 
 
