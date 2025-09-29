@@ -23,21 +23,24 @@
     
         window.addEventListener('pageshow', (event) => {
 
-            alert ('hola');
-            
-            const [entry] = performance.getEntriesByType("navigation");
+            if (event.persisted) {
 
-            alert (entry.type);
-                        
-            if (entry && entry.type === "back_forward") {
-                
                 window.location.href = "pagina1.html";                 
+                
+            } else {
+                const [entry] = performance.getEntriesByType("navigation");
+                                   
+                if (entry && entry.type === "back_forward") {
+                
+                    window.location.href = "pagina1.html";                 
+                }
             }
         });        
 
     </script>
 </body>
 </html>
+
 
 
 
