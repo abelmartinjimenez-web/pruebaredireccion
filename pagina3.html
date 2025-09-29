@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capturar pulsación botón volver página 3</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>    
+
+    <h1>Página 3</h1>
+    <p>Pulsa en la flecha atrás del navegador para comprobar que se vuelve a la página 1 en lugar de a la página 2.</p> 
+
+    <form action="submit.php" style="display: none;">
+    <textarea name="elemento" id="elemento" cols="30" rows="10"></textarea>
+    <button>enviar</button>
+    </form>
+
+    <script>   
+                
+        window.addEventListener('popstate', function(e) {  
+                        
+            history.pushState(null, document.title, location.href);
+
+            window.location.href = "pagina1.html"; 
+        });
+
+        document.addEventListener('click', function () {
+            document.getElementById('elemento').value = "esto es un dato que voy a introducor con JS";
+        });
+        
+        history.pushState(null, document.title, location.href);                  
+        
+    </script>
+</body>
+</html>
+         
+    
+

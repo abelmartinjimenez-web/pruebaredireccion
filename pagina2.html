@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capturar pulsación botón volver página 2</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+    </style>    
+</head>
+<body>    
+
+    <h1>Página 2</h1>
+    <p>Intenta navegar a la página 3 pulsando el siguiente link:</p>
+  
+    <a href="pagina3.html">Ir a página 3</a>
+
+    <script>       
+    
+        window.addEventListener('pageshow', (event) => {
+            
+            const [entry] = performance.getEntriesByType("navigation");
+                        
+            if (entry && entry.type === "back_forward") {
+                
+                window.location.href = "pagina1.html";                 
+            }
+        });        
+
+    </script>
+</body>
+</html>
+
+
+
